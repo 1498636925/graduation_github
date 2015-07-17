@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pull_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.gdestiny.github.ui.view.MoreListView
+            android:id="@+id/list"
+            style="@style/normal_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </com.gdestiny.github.ui.view.MoreListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <com.gdestiny.github.ui.view.ListPopupView
+        android:id="@+id/filter_popup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin16"
+            android:layout_marginRight="@dimen/margin16"
+            android:background="@drawable/selector_filter_popup"
+            android:src="@drawable/common_filter_round" />
+    </com.gdestiny.github.ui.view.ListPopupView>
+
+</RelativeLayout>

@@ -1,0 +1,105 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item name="tag_imageloader" type="id"></item>
+    <item name="tag_group" type="id"></item>
+    <item name="tag_child" type="id"></item>
+
+    <style name="SwipeBackLayout">
+        <item name="edge_size">10dp</item>
+        <item name="shadow_left">@drawable/shadow_left</item>
+        <item name="shadow_right">@drawable/shadow_right</item>
+        <item name="shadow_bottom">@drawable/shadow_bottom</item>
+    </style>
+
+    <style name="CircleProgressBar" parent="android:Widget.Holo.ProgressBar">
+        <item name="cpb_color">@color/common_indicator_pressed</item>
+        <item name="cpb_stroke_width">3dp</item>
+        <item name="cpb_min_sweep_angle">10</item>
+        <item name="cpb_max_sweep_angle">300</item>
+        <item name="cpb_sweep_speed">1.0</item>
+        <item name="cpb_rotation_speed">1.0</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.Sherlock.Light">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/common_background</item>
+        <item name="cpbStyle">@style/CircleProgressBar</item>
+    </style>
+
+    <style name="image_with_frame">
+        <item name="android:paddingLeft">1px</item>
+        <item name="android:paddingTop">1px</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:cropToPadding">true</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="editText_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:background">@drawable/selector_common_edtitext_editable</item>
+    </style>
+
+    <style name="user_editText_style" parent="editText_style">
+        <item name="android:drawablePadding">@dimen/margin8</item>
+        <item name="android:textColorHint">@color/common_icon_grey</item>
+    </style>
+
+    <style name="common_menu_text_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:drawablePadding">@dimen/margin4</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingTop">@dimen/margin8</item>
+        <item name="android:paddingBottom">@dimen/margin8</item>
+        <item name="android:paddingLeft">@dimen/margin8</item>
+        <item name="android:textColor">@drawable/selector_common_menu_text</item>
+        <item name="android:textSize">@dimen/text18</item>
+        <item name="android:clickable">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@drawable/selector_common_menu_item</item>
+    </style>
+
+    <style name="scrollbar_style">
+        <item name="android:scrollbarSize">4dp</item>
+        <item name="android:scrollbarThumbVertical">@drawable/drawable_thumb_vertical</item>
+        <item name="android:scrollbarThumbHorizontal">@drawable/drawable_thumb_vertical</item>
+    </style>
+
+    <style name="normal_listview" parent="scrollbar_style">
+        <item name="android:cacheColorHint">@color/transparent</item>
+        <item name="android:scrollingCache">true</item>
+        <item name="android:smoothScrollbar">true</item>
+        <item name="android:listSelector">@drawable/selector_listviewitem</item>
+        <item name="android:dividerHeight">0.5dip</item>
+        <item name="android:divider">#dddddd</item>
+    </style>
+
+    <style name="titlebar_pop_lsit" parent="normal_listview">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="titlebar_popupwindow_anim">
+        <item name="android:windowEnterAnimation">@anim/titlebar_popupwindow_in</item>
+        <item name="android:windowExitAnimation">@anim/titlebar_popupwindow_out</item>
+    </style>
+
+    <style name="settingText_style">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">@dimen/margin16</item>
+        <item name="android:paddingRight">@dimen/margin16</item>
+        <item name="android:background">@drawable/selector_listviewitem</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/common_light_black</item>
+        <item name="android:textSize">@dimen/text18</item>
+        <item name="android:drawableRight">@drawable/common_forward_grey</item>
+        <item name="android:paddingBottom">@dimen/margin16</item>
+        <item name="android:paddingTop">@dimen/margin16</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+</resources>

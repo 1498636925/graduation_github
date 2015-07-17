@@ -1,0 +1,9 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.Sherlock.Light">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/common_background</item>
+        <item name="cpbStyle">@style/CircleProgressBar</item>
+    </style>
+
+</resources>

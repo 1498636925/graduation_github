@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_icon_blue" >
+
+    <ImageView
+        android:id="@+id/search_back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:paddingRight="@dimen/margin8"
+        android:paddingLeft="@dimen/margin8"
+        android:background="@drawable/selector_on_click"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/common_btn_back" />
+
+    <ImageButton
+        android:id="@+id/search_rignt_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/selector_on_click"
+        android:contentDescription="@string/app_name"
+        android:paddingLeft="@dimen/margin16"
+        android:paddingRight="@dimen/margin16"
+        android:src="@drawable/common_search" />
+
+    <com.gdestiny.github.ui.view.FocusedEditText
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin8"
+        android:layout_toLeftOf="@id/search_rignt_btn"
+        android:layout_toRightOf="@id/search_back_btn"
+        android:background="@drawable/selector_common_edtitext_white"
+        android:hint="@string/search"
+        android:paddingRight="@dimen/margin32"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/text18" />
+
+    <ImageButton
+        android:id="@+id/search_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignRight="@id/search"
+        android:background="@color/transparent"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/common_delete_x"
+        android:visibility="gone" />
+
+</RelativeLayout>
