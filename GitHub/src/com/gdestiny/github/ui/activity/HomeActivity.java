@@ -1,8 +1,11 @@
 package com.gdestiny.github.ui.activity;
 
+import org.eclipse.egit.github.core.User;
+
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -17,10 +20,10 @@ import com.gdestiny.github.ui.fragment.FollowerFragment;
 import com.gdestiny.github.ui.fragment.FollowingFragment;
 import com.gdestiny.github.ui.fragment.GistFragment;
 import com.gdestiny.github.ui.fragment.IssueDashboardFragment;
-import com.gdestiny.github.ui.fragment.LeftMenuFragment;
 import com.gdestiny.github.ui.fragment.RepositoryFragment;
-import com.gdestiny.github.ui.view.ResideMenu;
+import com.gdestiny.github.ui.view.ImageViewEx;
 import com.gdestiny.github.utils.GLog;
+import com.gdestiny.github.utils.ImageLoaderUtils;
 import com.gdestiny.github.utils.IntentUtils;
 import com.gdestiny.github.utils.PreferencesUtils;
 import com.gdestiny.github.utils.ToastUtils;
@@ -30,13 +33,12 @@ public class HomeActivity extends BaseFragmentActivity implements
 
 	private long keyTime; // again exit
 	public static final int exitLimit = 2000;
-	private ResideMenu resideMenu;
 	private BaseFragment currentFragment;
 	private String currentFragmentTag;
 
-	public ResideMenu getResideMenu() {
-		return resideMenu;
-	}
+	private DrawerLayout drawer;
+	private ImageViewEx avatar;
+	private TextView name;
 
 	@Override
 	protected void setContentView(Bundle savedInstanceState) {
@@ -52,8 +54,11 @@ public class HomeActivity extends BaseFragmentActivity implements
 
 	@Override
 	protected void initData() {
-		// TODO Auto-generated method stub
-		getTitlebar().setTitleIcon(GitHubApplication.getUser().getAvatarUrl());
+		User user = GitHubApplication.getUser();
+		getTitlebar().setTitleIcon(user.getAvatarUrl());
+		name.setText(user.getLogin());
+		ImageLoaderUtils.displayImage(user.getAvatarUrl(), avatar,
+				R.drawable.default_avatar, R.drawable.default_avatar, false);
 
 		int startup = PreferencesUtils.getInt(context, "startup", 0);
 		switch (startup) {
@@ -92,27 +97,33 @@ public class HomeActivity extends BaseFragmentActivity implements
 
 	@Override
 	protected void onleftLayout() {
-		resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
+		if (drawer.isDrawerOpen(Gravity.LEFT)) {
+			drawer.closeDrawer(Gravity.LEFT);
+		} else {
+			drawer.openDrawer(Gravity.LEFT);
+		}
 	}
 
-	@SuppressWarnings("deprecation")
 	private void initMenu() {
-		resideMenu = new ResideMenu(this);
-		resideMenu.setBackground(R.drawable.common_menu_background);
-		resideMenu.setScaleValue(0.68f);
-		resideMenu.setDirectionDisable(ResideMenu.DIRECTION_RIGHT);
-		resideMenu.attachToActivity(this);
-		resideMenu.setLeftMenuFragment(this, new LeftMenuFragment(this));
-	}
+		drawer = (DrawerLayout) findViewById(R.id.drawer);
+		findViewById(R.id.menu_avatar).setOnClickListener(this);
+		findViewById(R.id.menu_repository).setOnClickListener(this);
+		findViewById(R.id.menu_news).setOnClickListener(this);
+		findViewById(R.id.menu_follower).setOnClickListener(this);
+		findViewById(R.id.menu_following).setOnClickListener(this);
+		findViewById(R.id.menu_gists).setOnClickListener(this);
+		findViewById(R.id.menu_issue).setOnClickListener(this);
+		findViewById(R.id.menu_bookmarks).setOnClickListener(this);
+		findViewById(R.id.menu_setting).setOnClickListener(this);
+		findViewById(R.id.menu_exit).setOnClickListener(this);
+		findViewById(R.id.menu_search).setOnClickListener(this);
 
-	@Override
-	public boolean dispatchTouchEvent(MotionEvent ev) {
-		return resideMenu.dispatchTouchEvent(ev);
+		avatar = (ImageViewEx) findViewById(R.id.menu_avatar);
+		name = (TextView) findViewById(R.id.menu_name);
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		boolean close = true;
 		switch (v.getId()) {
 		case R.id.menu_avatar:
@@ -151,7 +162,7 @@ public class HomeActivity extends BaseFragmentActivity implements
 			break;
 		}
 		if (close)
-			resideMenu.closeMenu();
+			drawer.closeDrawer(Gravity.LEFT);
 	}
 
 	private void changeOrNewFragment(View v) {
@@ -202,8 +213,8 @@ public class HomeActivity extends BaseFragmentActivity implements
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
-		if (resideMenu.isOpened()) {
-			resideMenu.closeMenu();
+		if (drawer.isDrawerOpen(Gravity.LEFT)) {
+			drawer.closeDrawer(Gravity.LEFT);
 			return true;
 		}
 		if (keyCode == KeyEvent.KEYCODE_BACK) {

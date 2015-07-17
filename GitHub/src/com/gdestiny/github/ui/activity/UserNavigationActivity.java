@@ -71,9 +71,9 @@ public class UserNavigationActivity extends BaseFragmentActivity {
 
 		indicatorView
 				.add(R.string.tab_repository,
-						R.drawable.common_repository_normal)
-				.add(R.string.events_l, R.drawable.common_news_normal)
-				.add(R.string.tab_follower, R.drawable.common_follower_normal)
+						R.drawable.common_repository_white)
+				.add(R.string.events_l, R.drawable.common_news_white)
+				.add(R.string.tab_follower, R.drawable.common_follower_white)
 				.add(R.string.tab_following, R.drawable.common_following_normal);
 
 		fragments.add(new RepositoryPageFragment());

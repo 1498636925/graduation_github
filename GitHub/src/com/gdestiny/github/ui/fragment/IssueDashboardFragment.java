@@ -15,14 +15,12 @@ import com.gdestiny.github.abstracts.activity.BaseFragmentActivity;
 import com.gdestiny.github.abstracts.fragment.BaseFragment;
 import com.gdestiny.github.abstracts.fragment.BaseLoadFragment;
 import com.gdestiny.github.adapter.SimplePageAdapter;
-import com.gdestiny.github.ui.activity.HomeActivity;
 import com.gdestiny.github.ui.view.IndicatorView;
-import com.gdestiny.github.ui.view.ResideMenu;
 import com.gdestiny.github.ui.view.TitleBar;
 
 public class IssueDashboardFragment extends BaseFragment {
 
-	private ResideMenu resideMenu;
+	// private ResideMenu resideMenu;
 	private ViewPager viewpager;
 	private IndicatorView indicatorView;
 	private List<BaseLoadFragment<?, ?>> fragments = new ArrayList<BaseLoadFragment<?, ?>>();
@@ -50,29 +48,29 @@ public class IssueDashboardFragment extends BaseFragment {
 
 		indicatorView.bind(viewpager);
 		viewpager.setOnPageChangeListener(indicatorView);
-		indicatorView
-				.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-					@Override
-					public void onPageSelected(int position) {
-						if (position == 0) {
-							// resideMenu.clearIgnoredViewList();
-							resideMenu.removeIgnoredView(viewpager);
-						} else {
-							if (resideMenu.getIgnoredViews() != null
-									&& resideMenu.getIgnoredViews().size() == 0)
-								resideMenu.addIgnoredView(viewpager);
-						}
-					}
-
-					@Override
-					public void onPageScrolled(int arg0, float arg1, int arg2) {
-					}
-
-					@Override
-					public void onPageScrollStateChanged(int arg0) {
-					}
-				});
+		// indicatorView
+		// .setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+		//
+		// @Override
+		// public void onPageSelected(int position) {
+		// if (position == 0) {
+		// // resideMenu.clearIgnoredViewList();
+		// resideMenu.removeIgnoredView(viewpager);
+		// } else {
+		// if (resideMenu.getIgnoredViews() != null
+		// && resideMenu.getIgnoredViews().size() == 0)
+		// resideMenu.addIgnoredView(viewpager);
+		// }
+		// }
+		//
+		// @Override
+		// public void onPageScrolled(int arg0, float arg1, int arg2) {
+		// }
+		//
+		// @Override
+		// public void onPageScrollStateChanged(int arg0) {
+		// }
+		// });
 	}
 
 	@Override
@@ -93,7 +91,7 @@ public class IssueDashboardFragment extends BaseFragment {
 				fragments);
 		viewpager.setAdapter(adapter);
 
-		resideMenu = ((HomeActivity) context).getResideMenu();
+		// resideMenu = ((HomeActivity) context).getResideMenu();
 	}
 
 	@Override

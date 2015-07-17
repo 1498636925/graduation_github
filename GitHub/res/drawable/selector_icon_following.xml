@@ -3,6 +3,6 @@
 
     <item android:drawable="@drawable/common_following_pressed" android:state_focused="false" android:state_pressed="true"/>
     <item android:drawable="@drawable/common_following_pressed" android:state_focused="true" android:state_pressed="true"/>
-    <item android:drawable="@drawable/common_following_normal"/>
+    <item android:drawable="@drawable/common_follow_grey"/>
 
 </selector>

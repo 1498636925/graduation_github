@@ -24,6 +24,7 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@color/common_background</item>
         <item name="cpbStyle">@style/CircleProgressBar</item>
+        <!-- toolbar（actionbar）颜色 --> 
     </style>
 
     <style name="image_with_frame">
@@ -59,6 +60,21 @@
         <item name="android:clickable">true</item>
         <item name="android:singleLine">true</item>
         <item name="android:background">@drawable/selector_common_menu_item</item>
+    </style>
+
+    <style name="common_drawer_menu_text_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:drawablePadding">@dimen/margin8</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingTop">@dimen/margin8</item>
+        <item name="android:paddingBottom">@dimen/margin8</item>
+        <item name="android:paddingLeft">@dimen/margin8</item>
+        <item name="android:textColor">@drawable/selector_common_menu_text</item>
+        <item name="android:textSize">@dimen/text18</item>
+        <item name="android:clickable">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@drawable/selector_listviewitem</item>
     </style>
 
     <style name="scrollbar_style">

@@ -3,6 +3,6 @@
 
     <item android:drawable="@drawable/common_gists_pressed" android:state_focused="false" android:state_pressed="true"/>
     <item android:drawable="@drawable/common_gists_pressed" android:state_focused="true" android:state_pressed="true"/>
-    <item android:drawable="@drawable/common_gists_normal"/>
+    <item android:drawable="@drawable/common_gists_grey"/>
 
 </selector>
