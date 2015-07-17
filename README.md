@@ -29,5 +29,9 @@
 # 二、使用
 使用eclipse导入项目与相应的库
 
-
+# 三、软件部分截图
+| ![logo](https://github.com/gdestiny/graduation_github/blob/master/Test/Screenshot/01-splash.png?raw=true) |![logo](https://github.com/gdestiny/graduation_github/blob/master/Test/Screenshot/02-homeMenu.png?raw=true)|![logo](https://github.com/gdestiny/graduation_github/blob/master/Test/Screenshot/03-code.png?raw=true)|
+| --------   | -----:  | :----:  |
+| ![logo](https://github.com/gdestiny/graduation_github/blob/master/Test/Screenshot/04-codefile.png?raw=true) | ![logo](https://github.com/gdestiny/graduation_github/blob/master/Test/Screenshot/05-commit.png?raw=true) |  ![logo](https://github.com/gdestiny/graduation_github/blob/master/Test/Screenshot/06-event.png?raw=true)  |
+|  ![logo](https://github.com/gdestiny/graduation_github/blob/master/Test/Screenshot/07-issue.png?raw=true) |  ![logo](https://github.com/gdestiny/graduation_github/blob/master/Test/Screenshot/gist.png?raw=true)  | ![logo](https://github.com/gdestiny/graduation_github/blob/master/Test/Screenshot/dashboard.png?raw=true)|
 
