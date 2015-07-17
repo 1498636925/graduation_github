@@ -18,6 +18,8 @@ import com.umeng.update.UpdateStatus;
 
 public class MaterialUpdateDialog {
 
+	private boolean isStartUp = false;
+
 	private Context context;
 
 	private MaterialDialog dialog;
@@ -36,6 +38,19 @@ public class MaterialUpdateDialog {
 
 	public void setOnUpdateListener(UmengUpdateListener updateListener) {
 		this.updateListener = updateListener;
+	}
+
+	public boolean isStartUp() {
+		return isStartUp;
+	}
+
+	public void setStartUp(boolean isStartUp) {
+		this.isStartUp = isStartUp;
+	}
+
+	public MaterialUpdateDialog(Context cxt, boolean isStartUp) {
+		this(cxt);
+		this.isStartUp = isStartUp;
 	}
 
 	public MaterialUpdateDialog(Context cxt) {
@@ -68,16 +83,18 @@ public class MaterialUpdateDialog {
 					// System.out.println("version:" + updateInfo.version);
 					break;
 				case UpdateStatus.No: // has no update
-					Toast.makeText(context, "No Update", Toast.LENGTH_SHORT)
-							.show();
+					if (!isStartUp)
+						Toast.makeText(context, "No Update", Toast.LENGTH_SHORT)
+								.show();
 					break;
 				case UpdateStatus.NoneWifi: // none wifi
-					Toast.makeText(context, R.string.UMGprsCondition,
-							Toast.LENGTH_SHORT).show();
+					// Toast.makeText(context, R.string.UMGprsCondition,
+					// Toast.LENGTH_SHORT).show();
 					break;
 				case UpdateStatus.Timeout: // time out
-					Toast.makeText(context, R.string.UMBreak_Network,
-							Toast.LENGTH_SHORT).show();
+					if (!isStartUp)
+						Toast.makeText(context, R.string.UMBreak_Network,
+								Toast.LENGTH_SHORT).show();
 					break;
 				}
 			}
@@ -140,11 +157,7 @@ public class MaterialUpdateDialog {
 			message.setText(context.getResources().getString(
 					R.string.UMDialog_InstallAPK)
 					+ "\n"
-					+ updateInfo.updateLog
-					+ updateInfo.updateLog
-					+ updateInfo.updateLog
-					+ updateInfo.updateLog
-					+ updateInfo.updateLog + updateInfo.updateLog);
+					+ updateInfo.updateLog);
 		} else {
 			message.setText(updateInfo.updateLog);
 		}

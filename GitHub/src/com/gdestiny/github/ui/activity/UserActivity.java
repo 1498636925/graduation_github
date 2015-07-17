@@ -11,6 +11,7 @@ import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.Gravity;
@@ -26,7 +27,6 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.ActionBar;
 import com.gdestiny.github.R;
 import com.gdestiny.github.abstracts.activity.BaseFragmentActivity;
 import com.gdestiny.github.abstracts.async.GitHubTask;
@@ -88,6 +88,8 @@ public class UserActivity extends BaseFragmentActivity implements
 	}
 
 	private void initTitleBar() {
+		titlebar.setBackgroundColor(getResources().getColor(
+				R.color.common_icon_blue));
 		View backLayout = titlebar.findViewById(R.id.title_left_layout);
 		backLayout.setOnClickListener(new View.OnClickListener() {
 

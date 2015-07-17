@@ -236,6 +236,11 @@ public class TitleBar extends FrameLayout implements View.OnClickListener {
 		return this;
 	}
 
+	public void setBackBtn(int id) {
+		ImageView btn = (ImageView) findViewById(R.id.titlebar_back_btn);
+		btn.setImageResource(id);
+	}
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

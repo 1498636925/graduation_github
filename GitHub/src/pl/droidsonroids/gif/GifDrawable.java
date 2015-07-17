@@ -686,7 +686,8 @@ public class GifDrawable extends Drawable implements Animatable, MediaPlayerCont
      *
      * @param canvas canvas to draw into
      */
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public void draw(Canvas canvas) {
         if (mApplyTransformation) {
             mDstRect.set(getBounds());

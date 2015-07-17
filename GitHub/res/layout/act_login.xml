@@ -90,4 +90,22 @@
         android:textColor="@drawable/selector_common_link_text"
         android:textSize="@dimen/text18" />
 
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/password_layout"
+        android:layout_marginRight="@dimen/margin32"
+        android:layout_marginTop="@dimen/margin16"
+        android:background="@drawable/selector_logout_btn"
+        android:gravity="center"
+        android:paddingBottom="6dp"
+        android:paddingLeft="@dimen/margin16"
+        android:paddingRight="@dimen/margin16"
+        android:paddingTop="6dp"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text18" />
+
 </RelativeLayout>

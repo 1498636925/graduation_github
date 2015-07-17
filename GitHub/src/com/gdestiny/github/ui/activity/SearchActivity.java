@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -16,7 +17,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-import com.actionbarsherlock.app.ActionBar;
 import com.gdestiny.github.R;
 import com.gdestiny.github.abstracts.activity.BaseFragmentActivity;
 import com.gdestiny.github.adapter.SearchHistoryAdapter;
@@ -180,7 +180,7 @@ public class SearchActivity extends BaseFragmentActivity implements
 	protected void initData() {
 		// TODO Auto-generated method stub
 		indicatorView.add(R.string._repository,
-				R.drawable.common_repository_normal).add(R.string.user,
+				R.drawable.common_repository_white).add(R.string.user,
 				R.drawable.common_accout_white);
 
 		searchRepositoryFragment = new SearchRepositoryFragment();

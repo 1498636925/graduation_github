@@ -15,6 +15,7 @@ import com.gdestiny.github.R;
 import com.gdestiny.github.abstracts.activity.BaseFragmentActivity;
 import com.gdestiny.github.abstracts.fragment.BaseFragment;
 import com.gdestiny.github.app.GitHubApplication;
+import com.gdestiny.github.ui.dialog.MaterialUpdateDialog;
 import com.gdestiny.github.ui.fragment.EventsUserReceivedFragment;
 import com.gdestiny.github.ui.fragment.FollowerFragment;
 import com.gdestiny.github.ui.fragment.FollowingFragment;
@@ -47,9 +48,9 @@ public class HomeActivity extends BaseFragmentActivity implements
 		initMenu();
 	}
 
-	@Override
+	@Override 
 	protected void initView() {
-
+		getTitlebar().setBackBtn(R.drawable.common_navi_btn);
 	}
 
 	@Override
@@ -93,6 +94,10 @@ public class HomeActivity extends BaseFragmentActivity implements
 		getTitlebar().setTitleText(currentFragmentTag);
 		changeFragment(R.id.home_frame, null, currentFragment,
 				currentFragmentTag);
+
+		MaterialUpdateDialog updateDialog = new MaterialUpdateDialog(context,
+				true);
+		updateDialog.update();
 	}
 
 	@Override
@@ -106,6 +111,7 @@ public class HomeActivity extends BaseFragmentActivity implements
 
 	private void initMenu() {
 		drawer = (DrawerLayout) findViewById(R.id.drawer);
+
 		findViewById(R.id.menu_avatar).setOnClickListener(this);
 		findViewById(R.id.menu_repository).setOnClickListener(this);
 		findViewById(R.id.menu_news).setOnClickListener(this);

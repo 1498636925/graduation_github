@@ -56,8 +56,7 @@ public class LoginActivity extends BaseFragmentActivity implements
 		super.initActionBar(titleBar);
 
 		titlebar.setTitleText(R.string.login);
-		titlebar.getRightBtn().setImageResource(R.drawable.common_login);
-		titlebar.showRightBtn();
+		titlebar.hideRight();
 		ViewUtils.setVisibility(titlebar.getTitleBackIcon(), View.GONE);
 	}
 
@@ -119,6 +118,7 @@ public class LoginActivity extends BaseFragmentActivity implements
 		registe.setOnClickListener(this);
 		passwordDel.setOnClickListener(this);
 		accountDel.setOnClickListener(this);
+		findViewById(R.id.login).setOnClickListener(this);
 	}
 
 	@Override
@@ -150,8 +150,7 @@ public class LoginActivity extends BaseFragmentActivity implements
 
 	}
 
-	@Override
-	protected void onRightBtn() {
+	private void onLogin() {
 		if (isLoginEnable()) {
 			login(account.getText().toString(), password.getText().toString());
 		} else {
@@ -294,6 +293,9 @@ public class LoginActivity extends BaseFragmentActivity implements
 			password.requestFocus();
 			if (!TextUtils.isEmpty(password.getText()))
 				password.setText("");
+			break;
+		case R.id.login:
+			onLogin();
 			break;
 		}
 	}

@@ -139,7 +139,6 @@
                 android:layout_marginLeft="@dimen/margin16"
                 android:layout_marginRight="@dimen/margin16"
                 android:layout_marginTop="@dimen/margin16"
-                android:autoLink="email"
                 android:drawableLeft="@drawable/common_email"
                 android:enabled="false"
                 android:hint="@string/email"

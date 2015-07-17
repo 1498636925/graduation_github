@@ -4,28 +4,25 @@ import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.Utils;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivityBase;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivityHelper;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageButton;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.gdestiny.github.R;
 import com.gdestiny.github.ui.view.TitleBar;
 import com.gdestiny.github.utils.Constants;
 import com.gdestiny.github.utils.GLog;
 import com.umeng.analytics.MobclickAgent;
 
-public abstract class BaseFragmentActivity extends SherlockFragmentActivity
-		implements SwipeBackActivityBase {
+public abstract class BaseFragmentActivity extends ActionBarActivity implements
+		SwipeBackActivityBase {
 
 	// ///////////////////////////////////////////////////////////////////////////////
 	// ÁíÀàµÄ·µ»Ø
@@ -135,6 +132,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity
 		actionbar.setDisplayShowHomeEnabled(false);
 		actionbar.setDisplayShowTitleEnabled(false);
 		actionbar.setDisplayUseLogoEnabled(false);
+		actionbar.setElevation(0);
 		// ¼àÌý
 		View backLayout = titleBar.findViewById(R.id.title_left_layout);
 		backLayout.setOnClickListener(new View.OnClickListener() {
@@ -155,32 +153,6 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity
 		});
 		// com.gdestiny.github.utils.AndroidUtils.initMiBar(this);
 		// initSystemBar();
-	}
-
-	@TargetApi(19)
-	private static void setTranslucentStatus(Activity activity, boolean on) {
-		Window win = activity.getWindow();
-		WindowManager.LayoutParams winParams = win.getAttributes();
-		final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-		if (on) {
-			winParams.flags |= bits;
-		} else {
-			winParams.flags &= ~bits;
-		}
-		win.setAttributes(winParams);
-	}
-
-	public void initSystemBar() {
-		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-			// GLog.sysout("Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT");
-			setTranslucentStatus(this, true);
-
-			com.gdestiny.github.utils.SystemBarTintManager tintManager = new com.gdestiny.github.utils.SystemBarTintManager(
-					this);
-			tintManager.setStatusBarTintEnabled(true);
-			tintManager.setNavigationBarTintEnabled(true);
-			tintManager.setStatusBarTintResource(R.color.common_icon_blue);
-		}
 	}
 
 	public TitleBar getTitlebar() {
