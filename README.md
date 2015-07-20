@@ -24,7 +24,7 @@
 > * [TouchImageView](https://github.com/MikeOrtiz/TouchImageView)
 
 
-![logo](https://github.com/gdestiny/nsfghawetkiut1345qtmglf/blob/master/GitHub/res/drawable-mdpi/ic_launcher.png?raw=true)
+![logo](https://github.com/gdestiny/graduation_github/blob/master/Test/Screenshot/show.png?raw=true)
 
 # 二、使用
 使用eclipse导入项目与相应的库
